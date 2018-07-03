@@ -19,9 +19,9 @@ def display_board(board):
     print('   |   |')
 
 
-test_board = ['x'] * 10
-
-display_board(test_board)
+# test_board = ['x'] * 10
+#
+# display_board(test_board)
 
 
 def player_input():
@@ -119,22 +119,50 @@ while True:
 
         if turn == 'Player 1':
 
-            #show the board
-        display_board(the_board)
+        #show the board
+            display_board(the_board)
         # choose the position
-        position = player_choise(the_board)
+            position = player_choise(the_board)
 
         # Place the marker on the position
-        place_marker(the_board, player1_marker, position)
+            place_marker(the_board, player1_marker, position)
 
         # check if they won
-        if win_check(the_board, player1_marker):
-            display_board(the_board)
-            print('Player 1 Has Won!!!')
-            game_on = False
-
-
-
+            if win_check(the_board, player1_marker):
+                display_board(the_board)
+                print('Player 1 Has Won!!!')
+                game_on = False
+            else:
+                if full_board_check(the_board):
+                    display_board(the_board)
+                    print('TIE GAME!')
+                    game_on = False
+                else:
+                    turn = 'Player 2'
 
         else:
+            # show the board
+            display_board(the_board)
+            # choose the position
+            position = player_choise(the_board)
+
+            # Place the marker on the position
+            place_marker(the_board, player2_marker, position)
+
+            # check if they won
+            if win_check(the_board, player2_marker):
+                display_board(the_board)
+                print('Player 2 Has Won!!!')
+                game_on = False
+            else:
+                if full_board_check(the_board):
+                    display_board(the_board)
+                    print('TIE GAME!')
+                    game_on = False
+                else:
+                    turn = 'Player 1'
+
+        if not replay():
+            break
+
 
