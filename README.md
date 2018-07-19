@@ -1,3 +1,3 @@
 # PythonBootCamp
 
-This rep is for files which I make during the Python course
+Для удобства переброса файла
